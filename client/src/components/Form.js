@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Form() {
-  const [firstName, setFirstName] = React.useState(null);
-  let [title, setTitle] = React.useState("Gourav");
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  let [title, setTitle] = useState("Gourav");
 
   function updateTitle() {
     setTitle("Pass");
   }
-  console.log("render!");
+
+  function handleForm(e) {
+    e.preventDefault();
+    const formData = { firstname: firstName, lastName: lastName };
+    console.log(formData);
+  }
+
   return (
     <>
-      <form>
+      <form onSubmit={handleForm}>
         <label htmlFor="firstname">Firstname</label>
-        <input type="text" id="firstname" name="firstname" />
-        <input type="text" placeholder="Lastname..." name="lastname" />
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          onChange={function (event) {
+            setFirstName(event.target.value);
+          }}
+        />
+        <input
+          type="text"
+          placeholder="Lastname..."
+          name="lastname"
+          onChange={(e) => {
+            setLastName(e.target.value);
+          }}
+        />
         {/* Ctrl + ? */}
         {/* <label htmlFor="cars">Choose a car:</label>
         <select id="cars">

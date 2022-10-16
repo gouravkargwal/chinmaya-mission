@@ -1,5 +1,7 @@
 import "./App.css";
+import CatFact from "./components/CatFact";
 import Form from "./components/Form";
+import FormWithRef from "./components/FormWithRef";
 
 function App() {
   return (
@@ -9,7 +11,10 @@ function App() {
         <p className="red">lad asd asdas as d</p>
       </div>
       <h1 className="red">Hello!</h1>
-      <Form />
+      {/* <Form /> */}
+      {/* <CatFact /> */}
+      <h1>Ref Form</h1>
+      <FormWithRef />
     </>
   );
 }
